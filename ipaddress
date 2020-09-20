@@ -1,0 +1,3 @@
+#!/bin/sh
+
+host raspberrypi | grep 'address' | cut -d' ' -f4
