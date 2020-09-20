@@ -1,5 +1,10 @@
 # pi
 
+## Hardware
+
++ Raspberry Pi Zero W
++ Waveshare Eink Shield 2.13 inch
+
 ## Github
 
 Allow pushing to github
