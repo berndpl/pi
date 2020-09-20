@@ -1,0 +1,26 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+
+import epd2in13
+import time
+from PIL import Image,ImageDraw,ImageFont
+#import traceback
+import sys
+
+#display "$(date) \n $(host raspberrypi | grep 'address' | cut -d' ' -f4)"
+
+font = ImageFont.truetype("/home/pi/pi/display/OverpassMono-Regular.ttf", 20, encoding="unic")
+
+title = sys.argv[1]
+
+epd = epd2in13.EPD()
+epd.init(epd.FULL_UPDATE)
+epd.Clear(0xFF)
+
+image = Image.new('1', (epd2in13.EPD_HEIGHT, epd2in13.EPD_WIDTH), 255)  # 255: clear the frame
+draw = ImageDraw.Draw(image)
+
+# Drawing on the image
+draw.text((20, 70), title, font=font)
+#draw.text((8, 8), title, fill=(255, 255, 255), font=font)
+epd.display(epd.getbuffer(image))
