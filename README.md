@@ -18,17 +18,23 @@ Allow accessing scripts across system
 
 Add folders to .bashrc
 
-```export PATH=$PATH:~/pi/display
+```
+export PATH=$PATH:~/pi/display
 export PATH=$PATH:~/pi
 ```
 
 ## Launch on boot
 
-Add to /etc/rc.local
-
 ```
-@reboot ~/pi/display/display $(timestamp)
-@reboot ~/pi/display/display $(ipaddress)
+sudo crontab -e
+```
+
+Add…
+```
+@reboot /usr/bin/python /home/pi/pi/display/display $(/home/pi/pi/timestamp)
+
+# Every minute
+* * * * * /usr/bin/python /home/pi/pi/display/display $(/home/pi/pi/timestamp)
 ```
 
 ## E-Ink
@@ -43,9 +49,8 @@ Display output of script
 display $(ipaddress)
 ```
 
-
-----
-
-#PI
-
-Reboot
+## Log Crontab
+```
+grep CRON /var/log/syslog
+tail -f grep CRON /var/log/syslog
+```
