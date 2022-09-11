@@ -20,7 +20,20 @@ epd.Clear(0xFF)
 image = Image.new('1', (epd2in13.EPD_HEIGHT, epd2in13.EPD_WIDTH), 255)  # 255: clear the frame
 draw = ImageDraw.Draw(image)
 
+lineHeight = 24
+currentLine = 20
+
+for argument in sys.argv:
+    if sys.argv[0] != argument:
+        draw.text((20, currentLine), argument, font=font)
+        currentLine += lineHeight
+
 # Drawing on the image
-draw.text((20, 70), title, font=font)
+
 #draw.text((8, 8), title, fill=(255, 255, 255), font=font)
+
+# Rotate
+angle = 180
+image = image.rotate(angle, expand=True)
+
 epd.display(epd.getbuffer(image))

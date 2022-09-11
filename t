@@ -18,6 +18,9 @@ list.each do |command|
 	i = i + 1
 end 
 
+puts "\n raspberrypi.local"
+puts "\n pisugar port 8423"
+
 puts "\n\n Yes, please ..."
 
 tty_param = `stty -g`
