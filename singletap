@@ -1,3 +1,0 @@
-#!/bin/sh
-
-/home/pi/pi/display/display "TAP $(date +"%d.%h-%H:%M:%S")"

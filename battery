@@ -1,0 +1,2 @@
+#!/bin/sh
+echo 'get battery' | sudo nc -q 0 127.0.0.1 8423 | awk -F'battery:' '{print $2}' | awk '{$1=$1};1'

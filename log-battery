@@ -1,0 +1,5 @@
+#!/bin/sh
+
+VALUE=$(echo 'get battery' | sudo nc -q 0 127.0.0.1 8423 | awk -F'battery:' '{print $2}' | awk '{$1=$1};1')
+
+curl -i -XPOST "http://alpha.local:8086/write?db=beta" --data-binary "battery value=$VALUE"
