@@ -1,0 +1,3 @@
+#!/bin/sh
+
+curl -i -XPOST "http://alpha.local:8086/write?db=beta" --data-binary "power value=1"

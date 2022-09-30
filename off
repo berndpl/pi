@@ -3,3 +3,4 @@
 UPTIME=$(uptime)
 
 /home/pi/pi/display/display "${UPTIME}" $(date +"%d.%h %H:%M:%S") && sudo halt
+/home/pi/pi/log-poweroff
